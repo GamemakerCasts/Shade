@@ -74,13 +74,13 @@ function __buildShade(shd) constructor {
 		samplers[$ sampler_name] = shader_get_sampler_index(shader, sampler_name);
 	}
 	
-	static applyTexture = function(sampler_name,texture){
+	static applyTexture = function(sampler_name,texture,subimg=0){
 		
 		if(__currentShade != name){ return -1; }
 		
 		if(!variable_struct_exists(samplers,sampler_name)){ loadSampler(sampler_name); }
 		
-		texture_set_stage(samplers[$ sampler_name], texture);
+		texture_set_stage(samplers[$ sampler_name], sprite_get_texture(texture, subimg));
 		
 	}
 	
