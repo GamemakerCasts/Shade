@@ -25,13 +25,13 @@ to apply a value to an uniform, you then use `applyUniform(* uniform name *, * v
 ```
 myShade.loadUniform("u_time");
 
-myShade.applyUniform("u_time", current_time, UniTypes.f);
+myShade.applyUniform("u_time", current_time, UNIFORMTYPES.f);
 ```
 
 `loadUniform()` is not necessary since `applyUniform()` will load the uniform id if it wasn't loeaded before, but you can use it if you want.
 <br>
 
- ### UniformTypes list
+ ### UNIFORMTYPES list
 
   * f             -   float
   * f_array       -   float array
