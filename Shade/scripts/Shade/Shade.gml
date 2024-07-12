@@ -4,7 +4,7 @@ globalvar __currentShade;
 __currentShade = __NO_SHADER;
 
 //Uniform types
-enum UniTypes {
+enum UNIFORMTYPES {
 	f,
 	f_array,
 	i,
@@ -41,12 +41,12 @@ function __buildShade(shd) constructor {
 	}
 	
 	//Uniforms
-	static loadUni = function(uni_name){
+	static loadUniform = function(uni_name){
 		__Shade_trace("Loading uniform of name '"+uni_name+"'")
 		unis[$ uni_name] = shader_get_uniform(shader,uni_name);
 	}
 	
-	static applyUni = function(uni_name,value,type=UniTypes.f){
+	static applyUniform = function(uni_name,value,type=UNIFORMTYPES.f){
 		
 		if(__currentShade != name){ return -1; }
 		
@@ -56,12 +56,12 @@ function __buildShade(shd) constructor {
 		
 		switch(type){
 		
-			case UniTypes.f:			shader_set_uniform_f(_uni, value); break;
-			case UniTypes.f_array:		shader_set_uniform_f_array(_uni, value); break;
-			case UniTypes.i:			shader_set_uniform_i(_uni, value); break;
-			case UniTypes.i_array:		shader_set_uniform_i_array(_uni, value); break;
-			case UniTypes.matrix:		shader_set_uniform_matrix(_uni); break;
-			case UniTypes.matrix_array: shader_set_uniform_matrix_array(_uni, value); break;
+			case UNIFORMTYPES.f:			shader_set_uniform_f(_uni, value); break;
+			case UNIFORMTYPES.f_array:		shader_set_uniform_f_array(_uni, value); break;
+			case UNIFORMTYPES.i:			shader_set_uniform_i(_uni, value); break;
+			case UNIFORMTYPES.i_array:		shader_set_uniform_i_array(_uni, value); break;
+			case UNIFORMTYPES.matrix:		shader_set_uniform_matrix(_uni); break;
+			case UNIFORMTYPES.matrix_array: shader_set_uniform_matrix_array(_uni, value); break;
 			
 		}
 			
