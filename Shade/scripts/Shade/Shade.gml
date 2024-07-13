@@ -50,7 +50,7 @@ function __buildShade(shd) constructor {
 		
 		if(__currentShade != name){ return -1; }
 		
-		if(!variable_struct_exists(unis,uni_name)){ loadUni(uni_name); }
+		if(!variable_struct_exists(unis,uni_name)){ loadUniform(uni_name); }
 		
 		var _uni = unis[$ uni_name];
 		
